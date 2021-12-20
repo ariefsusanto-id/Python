@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  app-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: coronamonitoring:1.0.0
+    restart: always
+    logging:
+      driver: json-file
+    environment:
+      - TZ=Asia/Jakarta

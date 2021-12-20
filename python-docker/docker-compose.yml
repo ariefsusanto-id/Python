@@ -1,0 +1,33 @@
+# Project docker compose file to start up postgres.
+#
+# 1. Set the postgres variables in .env file
+# 2. Update load-extensions.sh to create the extensions you want loaded
+# 3. Upon running for the first time, the container will be created and the database initialized
+# 4. Subsequent times you run, the database will already be initialized
+# 5. Deleting the container removes the content
+#
+#
+#  To run in the foreground (easiest)
+#  > docker-compose up
+#
+#  To run in the background and tail the logs
+#  > docker-compose up -d
+#  > docker-compose logs -f
+#
+#  Subsequent builds (if you change pg-Dockerfile)
+#  > docker-compose build
+#
+version: "3.3"
+services:
+  pythonapps:
+    container_name: corona-monitoring
+    image: coronamonitoring:1.0.0
+    ports:
+      - 5000:5000
+    logging:
+      driver: json-file
+    restart: always
+    networks:
+      - postgresql13
+networks:
+  postgresql13:

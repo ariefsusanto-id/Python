@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{url_for ('static',filename='style.css')}}">
+
+    <title>Dashboard Peduli Sehat</title>
+  </head>
+  <body>
+    
+
+    <div class="container mt-5">
+      <div class="card" style="background-color: #050A27">
+        <div class="card-body pl-5 pb-5">
+          <nav class="nav mt-3">
+            <h5 class="mr-5">PEDULI SEHAT</h5>
+          </nav>
+
+          <div class="row main mt-3">
+            <div class="col-md-6">
+              <h1 class="display-3">DATA COVID </h1>
+              <p>Hello. Saya akan membantu anda untuk menginformasikan data covid secara realtime.</p>
+            </div>
+          </div>
+
+          <img src="{{url_for ('static',filename='img/img1.png')}}" class="bg-img">
+          {% for data in data_indo %}
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">POSITIF</h5>
+                  <a href="#" class="btn btn-primary">{{data.positif}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">SEMBUH</h5>
+                  <a href="#" class="btn btn-primary">{{data.sembuh}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">MENINGGAL</h5>
+                  <a href="#" class="btn btn-primary">{{data.meninggal}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor  %}
+
+          <p></p>
+          
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
